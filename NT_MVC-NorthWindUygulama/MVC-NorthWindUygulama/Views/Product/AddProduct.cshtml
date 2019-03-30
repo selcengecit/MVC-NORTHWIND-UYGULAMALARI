@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+@using MVC_NorthWindUygulama.Models;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddProduct</title>
+</head>
+<body>
+    <form action="AddProduct" method="post">
+
+        Ürün Adı: <input type="text" name="ProductName"/> <!--TextBox olusturcak-->
+        <br />
+        <br />
+        Fiyat:<input type="number" name="UnitPrice"/> <!--numericUpDown olusturcak-->
+        <br />
+        <br />
+        Stok: <input type="number" name="UnitsInStock" /> <!--numericUpDown olusturcak-->
+        <br />
+        <br />
+        Kategori:
+        <select name="CategoryID">
+            @foreach (Category cat in ViewBag.categoryList)
+        {
+            <option value="@cat.CategoryID">@cat.CategoryName</option>
+    }
+        </select>
+        <br />
+        <br />
+        Tedarikçi:
+        <select name="SupplierID">
+            @foreach (Supplier sup in ViewBag.supplierList)
+        {
+            <option value="@sup.SupplierID">@sup.CompanyName</option>
+    }
+        </select>
+        <br />
+        <br />
+        <a href="Index"> İptal </a>
+        <input type="submit" value="Ekle" />
+
+    </form>
+</body>
+</html>
